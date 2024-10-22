@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+  <title> WebRTC Video Conference Tutorial - Plain WebRTC</title>
+
+  <style>
+
+    .column {
+    float: left;
+    width: 30%;
+    }
+    .cursor {
+      margin-top: -30px;
+      cursor:pointer;
+    }
+    /* stoixhsh eikonwn*/
+    article{
+      width: 430px;
+      height: 500px;
+      max-width: 100%;
+      max-height: 100vh; /* Explicit height, adjust as needed */
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+    .aboutus-container {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(100px, 1fr)); /* For adaptation to a smaller page */
+      gap: 5px;
+    }
+    .grid-item {
+      padding: 0 1em 0 1em;
+      border-style: none solid solid none;
+      height: 30em;
+      overflow: hidden auto;
+
+      box-shadow: 0px 0px 10px rgba(2, 3, 0, 0.2);
+      text-align: center;
+    }
+
+    </style>
+</head>
+
+<body>
+
+<!--This is the div that contains the form for typing the room number-->
+<h1> WebRTC Video Conference Tutorial - Plain WebRTC</h1>
+
+<div id="selectRoom">
+  <label> Type the room number</label>
+  <input id="roomNumber" type="text"/>
+  <button id="goRoom">Go</button>
+</div>
+
+<!--This is the div that contains video streams-->
+<div id="consultingRoom" style="display:none">
+
+    <div class="grid-item">
+      <h3><i><font color="red">Video</font></i></h3>
+        <video id="localVideo" autoplay></video>
+        <video id="remoteVideo" autoplay></video>
+    </div>
+<div style="text-align: center">
+  <input id="inputCallName" placeholder="Type your message" type="text"/>
+  <button id="sendButton">Send</button>
+</div>
+    <div class="grid-item" >
+
+
+      <article class="ad-item">
+
+        <h3><i><font color="red">Chat</font></i></h3>
+
+        <div>
+          <p>
+          <ul id="chatMessages"></ul>
+          </p>
+        </div>
+
+      </article>
+    </div>
+
+</div>
+
+<!--required javascripts libraries-->
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
